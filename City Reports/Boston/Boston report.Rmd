@@ -1,0 +1,80 @@
+---
+title: "Boston"
+author: "Aniket Kesari"
+date: "August 7, 2017"
+output: html_document
+---
+
+```{r}
+setwd("C:/Users/Owner/Dropbox/Homework/Summer 2017/Google Public Policy Fellowship/Innovation Districts/Data/Boston")
+library("tidyverse")
+library("rgdal")
+library("sp")
+library("maptools")
+memory.limit(size = 35000)
+
+# Load Zoning Shape File
+
+boston_zone <- readOGR("C:/Users/Owner/Dropbox/Homework/Summer 2017/Google Public Policy Fellowship/Innovation Districts/Data/Boston/Bos_neighborhoods/Bos_neighborhoods (1)", layer="Bos_neighborhoods")
+boston_zone <- spTransform(boston_zone, CRS("+proj=longlat +datum=WGS84"))
+
+# Data
+econ_indicators <- read_csv("economic-indicators.csv")
+
+prop2014 <- read_csv("property-assessment-fy2014.csv")
+prop2015 <- read_csv("property-assessment-fy2015.csv")
+prop2016 <- read_csv("property-assessment-fy2016.csv")
+prop2017 <- read_csv("property-assessment-fy2017.csv")
+prop <- prop2014 %>%
+        bind_rows(prop2015, prop2016, prop2017)
+prop <- as.data.frame(prop)
+
+# Separate Long and Lat
+prop <- prop %>%
+        filter(!is.na(Location)) %>%
+        separate(Location, c("Lat", "Long"), sep="\\|")
+prop$Lat <- sub(".", "", prop$Lat)
+prop$Long <- sub(".$", "", prop$Long)
+prop$Lat <- as.numeric(prop$Lat)
+prop$Long <- as.numeric(prop$Long)
+prop$YR_BUILT <- as.numeric(prop$YR_BUILT)
+
+## ggplot
+boston_zone_f <- fortify(boston_zone)
+boston_zone$id <- row.names(boston_zone)
+boston_zone_f <- left_join(boston_zone_f, boston_zone@data)
+boston_zone_f$long <- as.numeric(boston_zone_f$long)
+boston_zone_f$lat <- as.numeric(boston_zone_f$lat)
+
+map <- ggplot() + geom_polygon(data=boston_zone_f, aes(long, lat, group = group, fill = Name))
+prop <- prop %>% filter(!is.na(Lat) | !is.na(Long))
+prop <- prop %>% filter(Lat > 0)
+map2 <- map + geom_point(data = prop, aes(Long, Lat)) + coord_equal() 
+
+# Transform into Spatial Data Points
+coordinates(prop) <- ~ Long + Lat
+proj4string(prop) <- CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
+prop_zone_info <- over(prop, boston_zone)
+prop.zone <- spCbind(prop, prop_zone_info)
+
+properties <- as.data.frame(prop.zone)
+propertiesY <- properties %>%
+               group_by(id, YR_BUILT) %>%
+               summarise(avg_value = mean(AV_TOTAL))
+
+propertiesY <- as.data.frame(propertiesY)
+
+propertiesY <- sp::merge(boston_zone, propertiesY, by.x="id", by.y="id", duplicateGeoms=TRUE)
+spplot(propertiesY, z="avg_value")
+
+propertiesY_f <- fortify(propertiesY)
+propertiesY_f <- left_join(propertiesY_f, propertiesY@data)
+ggplot() + geom_polygon(data=propertiesY_f, aes(x=long, y=lat, group=group, fill=avg_value)) + facet_wrap(YR_BUILT)
+
+permsY_f <- fortify(permsY)
+permsY_f <- left_join(permsY_f, permsY@data)
+permsY_f <- permsY_f %>%
+            select(long, lat, order, hole, piece, id, group, zone, Year, avg_value) %>%
+            filter(permsY_f$avg_value > 0)
+ggplot() + geom_polygon(data=permsY_f, aes(x=long, y=lat, group=group, fill=avg_value)) + facet_wrap(~Year)
+```

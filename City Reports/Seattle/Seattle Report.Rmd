@@ -1,0 +1,140 @@
+---
+title: "Seattle Report"
+author: "Aniket Kesari"
+date: "July 19, 2017"
+output: html_document
+---
+
+This report details quantitative measures about Seattle's South Lake Union District.
+
+# Data Sources
+
+This data for this project is drawn from Seattle's open data portal. The principal data sources I used were:
+(1) City of Seattle Zoning
+(2) Current Permits
+(3) Old Permits
+
+The first dataset contains shapefile information for Seattle's zones. This dataset is the basis for drawing maps of Seattle, and classifying zones based on their use, density, etc.
+
+The latter two datasets were combined to get information about every building permit issued in Seattle between 1998 and 2017. Notable features of this dataset include the valuation of the building, the year the permit was issued, whether the building was residential or commercial, and geographic location of the building.
+
+# Summary Statistics
+
+```{r, echo=FALSE, message=FALSE}
+# Set Working Directory and Load Packages
+setwd("C:/Users/Owner/Dropbox/Homework/Summer 2017/Google Public Policy Fellowship/Innovation Districts/Data/Seattle")
+library("tidyverse")
+library("rgdal")
+library("sp")
+library("maptools")
+memory.limit(size = 35000)
+
+# Load + Clean Data
+
+## Zoning Data
+seattle_zone <- readOGR(dsn="C:/Users/Owner/Dropbox/Homework/Summer 2017/Google Public Policy Fellowship/Innovation Districts/Data/Seattle/City_of_Seattle_Zoning/WGS84", layer="City_of_Seattle_Zoning")
+
+## Building Permits
+
+### Join Current and Old Permit Data
+current_permits <- read.csv("Building_Permits___Current.csv")
+old_permits <- read.csv("Building_Permits___Older_than_5_years.csv")
+all_permits <- bind_rows(current_permits, old_permits)
+
+### Clean Combined Dataset
+
+all_permits$Application.Date <- as.Date(all_permits$Application.Date, format="%m/%d/%Y")
+all_permits$Issue.Date <- as.Date(all_permits$Issue.Date, format="%m/%d/%Y")
+all_permits$Final.Date <- as.Date(all_permits$Final.Date, format="%m/%d/%Y")
+all_permits$Value <- gsub('\\$', '', all_permits$Value)
+all_permits$Value <- as.numeric(all_permits$Value)
+```
+
+## Maps
+
+Basic Zoning Map with No Labels:
+```{r}
+plot(seattle_zone)
+```
+
+Color Coded Regions (Residential/Commercial and Neighborhood/Commercial are the South Lake Union areas):
+```{r, echo=FALSE}
+### Prep for use in ggplot
+seattle_zone_f <- fortify(seattle_zone)
+seattle_zone$id <- row.names(seattle_zone)
+seattle_zone_f <- left_join(seattle_zone_f, seattle_zone@data)
+seattle_zone_f$long <- as.numeric(seattle_zone_f$long)
+seattle_zone_f$lat <- as.numeric(seattle_zone_f$lat)
+
+### Ggplot plain zoning
+map <- ggplot() + geom_polygon(data = seattle_zone_f, aes(long, lat, group = group, fill = CLASS_DESC)) 
+```
+
+Colored Coded Regions with Point Data Showing Number of Permits:
+
+```{r, echo=FALSE, warning=FALSE}
+all_permits$Year <- format(all_permits$Application.Date, "%Y")
+all_permits$Year <- as.numeric(all_permits$Year)
+map2 <- map + geom_point(data = all_permits, aes(Longitude, Latitude)) + coord_equal()
+
+map2 + facet_wrap(~Year)
+```
+
+Heat Map Showing Number of Permits in each Zone:
+
+```{r, echo=FALSE}
+### Transform Permit Data Into Spatial Points
+all_permits <- all_permits %>%
+               filter(!is.na(Longitude), !is.na(Latitude)) # Remove NAs
+
+coordinates(all_permits) <- ~ Longitude + Latitude # Turn into spatial points data frame
+
+proj4string(all_permits) <- CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0") # Reproject CRS to match "seattle_zone"
+
+permits_zone_info <- over(all_permits, seattle_zone) # Match seattle_zone info to permit data
+permits.zone <- spCbind(all_permits, permits_zone_info) # Combine seattle zone info into permit data
+
+## Plotting
+
+# Function to draw a heat map based on number of points in a zone
+heatMap <-function(data,shape=NULL,col="blue",main="Sample HeatMap"){
+  # Plots a Heat Map of a Polygons Data Frame.  This will 
+  # demonstrate density within a finite set of polygons
+  #
+  # Args:
+  #   data:   Spatial Points dataframe
+  #   shape:  Polygons Data Frame 
+  #
+  #
+  #   Notes:  This function requires the sp and RColorBrewer
+  #           Packages
+  #
+  #   Beskow: 03/28/11   
+  #
+  is.installed <- function(mypkg) is.element(mypkg, 
+                                             installed.packages()[,1])
+  if (is.installed(mypkg="sp")==FALSE)  {
+    stop("sp package is not installed")}
+  if (is.installed(mypkg="RColorBrewer")==FALSE)  {
+    stop("RColorBrewer package is not installed")}
+  if (!class(data)=="SpatialPointsDataFrame")  {
+    stop("data argument is not SpatialPointsDataFrame")}
+  require(sp)
+  require(RColorBrewer)
+  freq_table<-data.frame(tabulate(over(as(data,"SpatialPoints"),
+                                       as(shape,"SpatialPolygons")),nbins=length(shape)))
+  names(freq_table)<-"counts"
+  
+  shape1<-spChFIDs(shape,as.character(1:length(shape)))
+  row.names(as(shape1,"data.frame"))
+  spdf<-SpatialPolygonsDataFrame(shape1, freq_table, match.ID = TRUE)
+  
+  rw.colors<-colorRampPalette(c("white",col))
+  spplot(spdf, scales = list(draw = TRUE),
+         col.regions=rw.colors(max(freq_table)), main=main)
+}
+
+### Draw Permit Density Map
+heatMap(all_permits, seattle_zone, col="red", main="Seattle Permit Density")
+```
+

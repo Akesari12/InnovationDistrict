@@ -1,0 +1,153 @@
+---
+title: "Chattanooga Report"
+author: "Aniket Kesari"
+date: "July 24, 2017"
+output: html_document
+---
+
+```{r}
+setwd("C:/Users/Owner/Dropbox/Homework/Summer 2017/Google Public Policy Fellowship/Innovation Districts/Data/Chattanooga")
+library("tidyverse")
+library("rgdal")
+library("sp")
+library("maptools")
+memory.limit(size = 35000)
+
+# Load Zoning Shape File
+chattanooga_zone <- readOGR("C:/Users/Owner/Dropbox/Homework/Summer 2017/Google Public Policy Fellowship/Innovation Districts/Data/Chattanooga/Zoning", layer="geo_export_878a099d-9706-4e33-9512-96a05567cc12")
+
+# Load Zoning Codes and Descriptions
+zoning_codes <- read_csv("C:/Users/Owner/Dropbox/Homework/Summer 2017/Google Public Policy Fellowship/Innovation Districts/Data/Chattanooga/Zoning/zoning codes.csv")
+
+# Fortify Shape File, Merge Back Into Zoning Data, and Merge In Zoning Descriptions
+chattanooga_zone_f <- fortify(chattanooga_zone)
+chattanooga_zone$id <- row.names(chattanooga_zone)
+chattanooga_zone_f <- left_join(chattanooga_zone_f, chattanooga_zone@data)
+chattanooga_zone_f$long <- as.numeric(chattanooga_zone_f$long)
+chattanooga_zone_f$lat <- as.numeric(chattanooga_zone_f$lat)
+chattanooga_zone_f <- left_join(chattanooga_zone_f, zoning_codes, by="zone")
+
+# Plot Zones
+
+map <- ggplot() + geom_polygon(data=chattanooga_zone_f, aes(long, lat, group = group, fill=desc))
+
+# Merge in Business Data
+
+all_permits <- read_csv("All_Permits.csv")
+all_permits <- all_permits %>%
+               separate(OriginalAddressLocation, c("Latitude", "Longitude"), sep=",") # Separate Lat and Long
+all_permits$Latitude <- sub(".", "", all_permits$Latitude) # Remove parantheses
+all_permits$Longitude <- sub(".$", '', all_permits$Longitude)
+all_permits$Latitude <- as.numeric(all_permits$Latitude)
+all_permits$Longitude <- as.numeric(all_permits$Longitude)
+all_permits$AppliedDate <- as.Date(all_permits$AppliedDate, format="%m/%d/%Y")
+all_permits$Year <- format(all_permits$AppliedDate, "%Y")
+all_permits$Year <- as.numeric(all_permits$Year)
+
+all_business <- read_csv("Business_License_chattanooga.csv")
+all_business <- as.data.frame(all_business)
+all_business$`Business Startdate` <- as.Date(all_business$`Business Startdate`, format="%m/%d/%Y")
+all_business$Year <- format(all_business$`Business Startdate`, "%Y")
+all_business$Year <- as.numeric(all_business$Year)
+
+# Overlay Permit Info on Chattanooga Map
+
+## ggplot point
+map2 <- map + geom_point(data = all_permits, aes(Longitude, Latitude)) + coord_equal()
+
+map3 <- map + geom_point(data=all_business, aes(Longitude, Latitude)) + coord_equal()
+## Transform  Permit Data Into Spatial Points
+
+all_permits <- all_permits %>%
+               filter(!is.na(Longitude), !is.na(Latitude)) # Remove NAs
+
+coordinates(all_permits) <- ~ Longitude + Latitude # Turn into spatial points data frame
+
+proj4string(all_permits) <- CRS("+proj=longlat +ellps=WGS84 +no_defs") # Reproject CRS to match "chattanooga_zone"
+
+permits_zone_info <- over(all_permits, chattanooga_zone) # Match seattle_zone info to permit data
+permits.zone <- spCbind(all_permits, permits_zone_info) # Combine seattle zone info into permit data
+
+permits <- as.data.frame(permits.zone)
+permsY <- permits %>%
+            group_by(id, Year) %>%
+            summarise(avg_value = mean(EstProjectCost))
+permsY <- as.data.frame(permsY)
+
+permsY <- sp::merge(chattanooga_zone, permsY, by.x="id", by.y="id", duplicateGeoms=TRUE)
+spplot(permsY, z="avg_value")
+
+permsY_f <- fortify(permsY)
+permsY_f <- left_join(permsY_f, permsY@data)
+permsY_f <- permsY_f %>%
+            select(long, lat, order, hole, piece, id, group, zone, Year, avg_value) %>%
+            filter(permsY_f$avg_value > 0)
+ggplot() + geom_polygon(data=permsY_f, aes(x=long, y=lat, group=group, fill=avg_value)) + facet_wrap(~Year)
+
+# Business
+
+all_business <- all_business %>%
+                filter(!is.na(Longitude), !is.na(Latitude))
+
+coordinates(all_business) <- ~Longitude + Latitude
+
+proj4string(all_business) <- CRS("+proj=longlat +ellps=WGS84 +no_defs")
+
+permits_zone_info2 <- over(all_business, chattanooga_zone)
+permits.zone2 <- spCbind(all_business, permits_zone_info2)
+
+permits2 <- as.data.frame(permits.zone2)
+permsY2 <- permits2 
+permsY2 <- as.data.frame(permsY2)
+
+permsY2 <- sp::merge(chattanooga_zone, permits2, by.x="id", by.y="id", duplicateGeoms=TRUE)
+spplot(permsY2, z="avg_value")
+
+permsY2_f <- fortify(permsY2)
+permsY2_f <- left_join(permsY2_f, permsY2@data)
+permsY2_f <- permsY2_f %>%
+             select(long, lat, order, hole, piece, id, group, zone, Year, avg_value) %>%
+             filter(PermsY2_f$avg_value > 0)
+ggplot() + geom_polygon(data=permsY2_f, aes(x=long, y=lat, group=group, fill=avg_value)) + facet_wrap(~Year)
+
+heatMap <-function(data,shape=NULL,col="blue",main="Sample HeatMap"){
+  # Plots a Heat Map of a Polygons Data Frame.  This will 
+  # demonstrate density within a finite set of polygons
+  #
+  # Args:
+  #   data:   Spatial Points dataframe
+  #   shape:  Polygons Data Frame 
+  #
+  #
+  #   Notes:  This function requires the sp and RColorBrewer
+  #           Packages
+  #
+  #   Beskow: 03/28/11   
+  #
+  is.installed <- function(mypkg) is.element(mypkg, 
+                                             installed.packages()[,1])
+  if (is.installed(mypkg="sp")==FALSE)  {
+    stop("sp package is not installed")}
+  if (is.installed(mypkg="RColorBrewer")==FALSE)  {
+    stop("RColorBrewer package is not installed")}
+  if (!class(data)=="SpatialPointsDataFrame")  {
+    stop("data argument is not SpatialPointsDataFrame")}
+  require(sp)
+  require(RColorBrewer)
+  freq_table<-data.frame(tabulate(over(as(data,"SpatialPoints"),
+                                       as(shape,"SpatialPolygons")),nbins=length(shape)))
+  names(freq_table)<-"counts"
+  
+  shape1<-spChFIDs(shape,as.character(1:length(shape)))
+  row.names(as(shape1,"data.frame"))
+  spdf<-SpatialPolygonsDataFrame(shape1, freq_table, match.ID = TRUE)
+  
+  rw.colors<-colorRampPalette(c("white",col))
+  spplot(spdf, scales = list(draw = TRUE),
+         col.regions=rw.colors(max(freq_table)), main=main)
+}
+
+### Draw Permit Density Map
+heatMap(all_business, chattanooga_zone, col="red", main="Seattle Permit Density")
+          
+```

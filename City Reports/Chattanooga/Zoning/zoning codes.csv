@@ -1,0 +1,65 @@
+zone,desc
+R-1,Single Family Low Density
+RT-1,Single Family Townhome
+RZ-1,Single Family High Density
+R-2,Two-Family Duplex
+R-T/Z,Single Family Medium Density
+R-3MD,Medium-High Density Residential
+R-3,High Density Residential
+R-5,Manufactured Home Residential
+R-4,Office and Multi-Family Residential
+O-1,Office and Single-Family Residential
+C-2,Convenience Commercial
+C-3,Central Business
+C-5,Neighborhood Commercial
+C-7,North Shore Plan
+C-4,Shopping Center
+MXU,Mixed Use
+UGC,Urban General Commercial
+A-1,Urban Agricultural
+M-1,Manufacturing
+M-2,Light Industrial
+M-3,Warehouse and Wholesale
+M-4,Outdoor Industrial Use
+D-RA-4,Downtown Four Story Residential
+D-RM-4,Downtown Four Story Multi-Unit Residential
+D-CX-6,Downtown Six Story Commercial Mixed Use
+D-CX-8,Downtown Eight Story Commercial Mixed Use
+D-CX-12,Downtown Twelve Story Commercial Mixed Use
+D-SH-6,Downtown Six Story Shopfront Mixed Use
+D-SH-8,Downtown Eight Story Shopfront Mixed Use
+D-CIV-4,Downtown Civic
+D-PK,Downtown Parks and Open Space
+R-RF-3,Riverfront Three Story
+R-RF-4,Riverfront Four Story
+R-RF-6,Riverfront Six Story
+U-RD-2,Urban Two Story Residential Detached
+U-RA-3,Urban Three Story Residential Attached
+U-RM-3,Urban Three Story Multi-Unit
+U-CX-3,Urban Three Story Commercial Mixed Use
+U-CX-4,Urban Four Story Commercial Mixed Use
+U-CX-5,Urban Five Story Commercial Mixed Use
+U-CX-6,Urban Six Story Commercial Mixed Use
+U-SH-3,Urban Three Story Shopfront Mixed Use
+U-SH-4,Urban Four Story Shopfront
+U-SH-6,Urban Six Story Shopfront
+U-IX-3,Urban Three Story Industrial Mixed Use
+U-IX-4,Urban Four Story Industrial Mixed Use
+U-IX-6,Urban Six Story Industrial Mixed Use
+U-IX-8,Urban Eight Story Industrial Mixed Use
+U-CIV-3,Urban Three Story Civic
+U-CIV-4,Urban Four Story Civic
+U-CIV-6,Urban Six Story Civic
+U-CC-3,Urban Three Story Commercial Corridor 
+U-PK,Urban Parks and Open Space
+E-RD-2,Urban Edge Two Story Residential Detached
+E-RA-2,Urban Edge Two Story Residential Attached
+E-RA-3,Urban Edge Three Story Residential Attached
+E-RM-3,Urban Edge Three Story  Residential Multi-Unit 
+E-CX-3,Urban Edge Three Story Commercial Mixed Use
+E-CX-4,Urban Edge Four Story Commercial Mixed Use
+E-SH-3,Urban Edge Three Story Shopfront Mixed Use
+E-SH-4,Urban Edge Four Story Shopfront Mixed Use
+E-IX-3,Urban Edge Three Story Industrial Mixed Use
+E-IX-4,Urban Edge Four Story Industrial Mixed Use
+E-IN-3,Urban Edge Three Story Industrial

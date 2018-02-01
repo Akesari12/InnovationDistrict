@@ -1,0 +1,1296 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "765t-5cps",
+      "name" : "Seattle Zoning by Click",
+      "attribution" : "Seattle GIS Program",
+      "attributionLink" : "https://gisrevprxy.seattle.gov/ArcGIS/rest/services/ext/WM_CityGISLayers/MapServer/17",
+      "averageRating" : 0,
+      "category" : "Land Base",
+      "createdAt" : 1441407051,
+      "description" : "City of Seattle zoning & associated special districts (ex: historical)",
+      "displayType" : "map",
+      "downloadCount" : 33,
+      "hideFromCatalog" : false,
+      "hideFromDataJson" : false,
+      "indexUpdatedAt" : 1443034499,
+      "licenseId" : "PUBLIC_DOMAIN",
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 13167614,
+      "provenance" : "community",
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1325016036,
+      "publicationGroup" : 260442,
+      "publicationStage" : "published",
+      "rowClass" : "",
+      "tableId" : 260442,
+      "totalTimesRated" : 0,
+      "viewCount" : 368,
+      "viewLastModified" : 1441407051,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : 220714070,
+        "name" : "OBJECTID",
+        "dataTypeName" : "number",
+        "description" : "OBJECTID",
+        "fieldName" : "objectid",
+        "position" : 1,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1788205,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "average" : "1227",
+          "largest" : "2453",
+          "null" : 0,
+          "top" : [ {
+            "item" : "2420",
+            "count" : 20
+          }, {
+            "item" : "2421",
+            "count" : 19
+          }, {
+            "item" : "2422",
+            "count" : 18
+          }, {
+            "item" : "2423",
+            "count" : 17
+          }, {
+            "item" : "2424",
+            "count" : 16
+          }, {
+            "item" : "2425",
+            "count" : 15
+          }, {
+            "item" : "2426",
+            "count" : 14
+          }, {
+            "item" : "2427",
+            "count" : 13
+          }, {
+            "item" : "2428",
+            "count" : 12
+          }, {
+            "item" : "2429",
+            "count" : 11
+          }, {
+            "item" : "2430",
+            "count" : 10
+          }, {
+            "item" : "2431",
+            "count" : 9
+          }, {
+            "item" : "2432",
+            "count" : 8
+          }, {
+            "item" : "2433",
+            "count" : 7
+          }, {
+            "item" : "2434",
+            "count" : 6
+          }, {
+            "item" : "2435",
+            "count" : 5
+          }, {
+            "item" : "2436",
+            "count" : 4
+          }, {
+            "item" : "2437",
+            "count" : 3
+          }, {
+            "item" : "2438",
+            "count" : 2
+          }, {
+            "item" : "2439",
+            "count" : 1
+          } ],
+          "smallest" : "1",
+          "sum" : "3009831"
+        },
+        "format" : { }
+      }, {
+        "id" : 220714071,
+        "name" : "Shape",
+        "dataTypeName" : "geospatial",
+        "description" : "Shape",
+        "fieldName" : "shape",
+        "position" : 2,
+        "renderTypeName" : "geospatial",
+        "tableColumnId" : 1788206,
+        "width" : 100,
+        "format" : { },
+        "subColumnTypes" : [ "human_address", "latitude", "longitude", "machine_address", "needs_recoding", "geometry" ]
+      }, {
+        "id" : 220714072,
+        "name" : "ZONEID",
+        "dataTypeName" : "number",
+        "description" : "ZONEID",
+        "fieldName" : "zoneid",
+        "position" : 3,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1788207,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "average" : "2012.593151243375",
+          "largest" : "3534",
+          "null" : 0,
+          "top" : [ {
+            "item" : "0",
+            "count" : 20
+          }, {
+            "item" : "3487",
+            "count" : 19
+          }, {
+            "item" : "3488",
+            "count" : 18
+          }, {
+            "item" : "3489",
+            "count" : 17
+          }, {
+            "item" : "3500",
+            "count" : 16
+          }, {
+            "item" : "3507",
+            "count" : 15
+          }, {
+            "item" : "3521",
+            "count" : 14
+          }, {
+            "item" : "3522",
+            "count" : 13
+          }, {
+            "item" : "3526",
+            "count" : 12
+          }, {
+            "item" : "3527",
+            "count" : 11
+          }, {
+            "item" : "3528",
+            "count" : 10
+          }, {
+            "item" : "3529",
+            "count" : 9
+          }, {
+            "item" : "3530",
+            "count" : 8
+          }, {
+            "item" : "3531",
+            "count" : 7
+          }, {
+            "item" : "3532",
+            "count" : 6
+          }, {
+            "item" : "3533",
+            "count" : 5
+          }, {
+            "item" : "3534",
+            "count" : 4
+          } ],
+          "smallest" : "0",
+          "sum" : "4936891"
+        },
+        "format" : { }
+      }, {
+        "id" : 220714073,
+        "name" : "ZONING",
+        "dataTypeName" : "text",
+        "description" : "ZONING",
+        "fieldName" : "zoning",
+        "position" : 4,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788208,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "largest" : "SM 85-240",
+          "null" : 0,
+          "top" : [ {
+            "item" : "LR3",
+            "count" : 20
+          }, {
+            "item" : "LR2",
+            "count" : 19
+          }, {
+            "item" : "LR1",
+            "count" : 18
+          }, {
+            "item" : "LR3 RC",
+            "count" : 17
+          }, {
+            "item" : "LR2 RC",
+            "count" : 16
+          }, {
+            "item" : "C1-40",
+            "count" : 15
+          }, {
+            "item" : "C2-40",
+            "count" : 14
+          }, {
+            "item" : "NC2-40",
+            "count" : 13
+          }, {
+            "item" : "NC3-40",
+            "count" : 12
+          }, {
+            "item" : "NC3-65",
+            "count" : 11
+          }, {
+            "item" : "SF 5000",
+            "count" : 10
+          }, {
+            "item" : "C1-65",
+            "count" : 9
+          }, {
+            "item" : "NC2P-40",
+            "count" : 8
+          }, {
+            "item" : "NC3P-40",
+            "count" : 7
+          }, {
+            "item" : "NC3P-65",
+            "count" : 6
+          }, {
+            "item" : "MIO-65-LR3",
+            "count" : 5
+          }, {
+            "item" : "MIO-37-LR1",
+            "count" : 4
+          }, {
+            "item" : "NC3P-85 (5.75)",
+            "count" : 3
+          }, {
+            "item" : "MIO-65-NC2-40",
+            "count" : 2
+          }, {
+            "item" : "SM-125",
+            "count" : 1
+          } ],
+          "smallest" : " "
+        },
+        "format" : { }
+      }, {
+        "id" : 220714074,
+        "name" : "ZONELUT",
+        "dataTypeName" : "text",
+        "description" : "ZONELUT",
+        "fieldName" : "zonelut",
+        "position" : 5,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788209,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "largest" : "SMRI",
+          "null" : 0,
+          "top" : [ {
+            "item" : "LR3",
+            "count" : 20
+          }, {
+            "item" : "LR2",
+            "count" : 19
+          }, {
+            "item" : "LR1",
+            "count" : 18
+          }, {
+            "item" : "MIO",
+            "count" : 17
+          }, {
+            "item" : "C1",
+            "count" : 16
+          }, {
+            "item" : "C2",
+            "count" : 15
+          }, {
+            "item" : "DH1",
+            "count" : 14
+          }, {
+            "item" : "DH2",
+            "count" : 13
+          }, {
+            "item" : " ",
+            "count" : 12
+          }, {
+            "item" : "DMC",
+            "count" : 11
+          }, {
+            "item" : "DMR",
+            "count" : 10
+          }, {
+            "item" : "HR",
+            "count" : 9
+          }, {
+            "item" : "IB",
+            "count" : 8
+          }, {
+            "item" : "IC",
+            "count" : 7
+          }, {
+            "item" : "IDM",
+            "count" : 6
+          }, {
+            "item" : "IG1",
+            "count" : 5
+          }, {
+            "item" : "IG2",
+            "count" : 4
+          }, {
+            "item" : "MR",
+            "count" : 3
+          }, {
+            "item" : "MR/RC",
+            "count" : 2
+          }, {
+            "item" : "NC1",
+            "count" : 1
+          } ],
+          "smallest" : " "
+        },
+        "format" : { }
+      }, {
+        "id" : 220714075,
+        "name" : "CONTRACT",
+        "dataTypeName" : "text",
+        "description" : "CONTRACT",
+        "fieldName" : "contract",
+        "position" : 6,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788210,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "largest" : "ORD120712",
+          "null" : 0,
+          "top" : [ {
+            "item" : " ",
+            "count" : 20
+          }, {
+            "item" : "CF296889",
+            "count" : 19
+          }, {
+            "item" : "CF292350",
+            "count" : 18
+          }, {
+            "item" : "CF294426",
+            "count" : 17
+          }, {
+            "item" : "CF293538",
+            "count" : 16
+          }, {
+            "item" : "OR120561",
+            "count" : 15
+          }, {
+            "item" : "CF307017",
+            "count" : 14
+          }, {
+            "item" : "CF304511",
+            "count" : 13
+          }, {
+            "item" : "CF292645",
+            "count" : 12
+          }, {
+            "item" : "CF292619",
+            "count" : 11
+          }, {
+            "item" : "CF292999",
+            "count" : 10
+          }, {
+            "item" : "CF306755",
+            "count" : 9
+          }, {
+            "item" : "CF298246",
+            "count" : 8
+          }, {
+            "item" : "CF311662",
+            "count" : 7
+          }, {
+            "item" : "CF300520",
+            "count" : 6
+          }, {
+            "item" : "CF309054",
+            "count" : 5
+          }, {
+            "item" : "CF311812",
+            "count" : 4
+          }, {
+            "item" : "CF311081",
+            "count" : 3
+          }, {
+            "item" : "CF298223",
+            "count" : 2
+          }, {
+            "item" : "CF305400",
+            "count" : 1
+          } ],
+          "smallest" : " "
+        },
+        "format" : { }
+      }, {
+        "id" : 220714076,
+        "name" : "ORDINANCE",
+        "dataTypeName" : "text",
+        "description" : "ORDINANCE",
+        "fieldName" : "ordinance",
+        "position" : 7,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788211,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "largest" : "ADMIN",
+          "null" : 0,
+          "top" : [ {
+            "item" : "123495",
+            "count" : 20
+          }, {
+            "item" : "114745",
+            "count" : 19
+          }, {
+            "item" : " ",
+            "count" : 18
+          }, {
+            "item" : "117434",
+            "count" : 17
+          }, {
+            "item" : "119218",
+            "count" : 16
+          }, {
+            "item" : "117919",
+            "count" : 15
+          }, {
+            "item" : "120074",
+            "count" : 14
+          }, {
+            "item" : "120454",
+            "count" : 13
+          }, {
+            "item" : "120459",
+            "count" : 12
+          }, {
+            "item" : "120455",
+            "count" : 11
+          }, {
+            "item" : "121474",
+            "count" : 10
+          }, {
+            "item" : "122054",
+            "count" : 9
+          }, {
+            "item" : "122311",
+            "count" : 8
+          }, {
+            "item" : "124470",
+            "count" : 7
+          }, {
+            "item" : "123020",
+            "count" : 6
+          }, {
+            "item" : "123263",
+            "count" : 5
+          }, {
+            "item" : "123282",
+            "count" : 4
+          }, {
+            "item" : "122829",
+            "count" : 3
+          }, {
+            "item" : "123589",
+            "count" : 2
+          }, {
+            "item" : "123649",
+            "count" : 1
+          } ],
+          "smallest" : " "
+        },
+        "format" : { }
+      }, {
+        "id" : 220714077,
+        "name" : "EFFECTIVE",
+        "dataTypeName" : "date",
+        "description" : "EFFECTIVE",
+        "fieldName" : "effective",
+        "position" : 8,
+        "renderTypeName" : "date",
+        "tableColumnId" : 1788212,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2273,
+          "largest" : 1434351600,
+          "null" : 180,
+          "top" : [ {
+            "item" : 1303196400,
+            "count" : 20
+          }, {
+            "item" : 627120000,
+            "count" : 19
+          }, {
+            "item" : 490172400,
+            "count" : 18
+          }, {
+            "item" : 796892400,
+            "count" : 17
+          }, {
+            "item" : 913449600,
+            "count" : 16
+          }, {
+            "item" : 820224000,
+            "count" : 15
+          }, {
+            "item" : 963730800,
+            "count" : 14
+          }, {
+            "item" : 999154800,
+            "count" : 13
+          }, {
+            "item" : 969692400,
+            "count" : 12
+          }, {
+            "item" : 1088060400,
+            "count" : 11
+          }, {
+            "item" : 1147417200,
+            "count" : 10
+          }, {
+            "item" : 1169280000,
+            "count" : 9
+          }, {
+            "item" : 1402556400,
+            "count" : 8
+          }, {
+            "item" : 1249628400,
+            "count" : 7
+          }, {
+            "item" : 1273042800,
+            "count" : 6
+          }, {
+            "item" : 1275030000,
+            "count" : 5
+          }, {
+            "item" : 1274252400,
+            "count" : 4
+          }, {
+            "item" : 1222498800,
+            "count" : 3
+          }, {
+            "item" : 1288767600,
+            "count" : 2
+          }, {
+            "item" : 1306911600,
+            "count" : 1
+          } ],
+          "smallest" : 9964800
+        },
+        "format" : { }
+      }, {
+        "id" : 220714078,
+        "name" : "HISTORIC",
+        "dataTypeName" : "text",
+        "description" : "HISTORIC",
+        "fieldName" : "historic",
+        "position" : 9,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788213,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "largest" : "SL",
+          "null" : 0,
+          "top" : [ {
+            "item" : " ",
+            "count" : 20
+          }, {
+            "item" : "PS",
+            "count" : 19
+          }, {
+            "item" : "PP",
+            "count" : 18
+          }, {
+            "item" : "HB",
+            "count" : 17
+          }, {
+            "item" : "FL",
+            "count" : 16
+          }, {
+            "item" : "CC",
+            "count" : 15
+          }, {
+            "item" : "BD",
+            "count" : 14
+          }, {
+            "item" : "SL",
+            "count" : 13
+          } ],
+          "smallest" : " "
+        },
+        "format" : { }
+      }, {
+        "id" : 220714079,
+        "name" : "PEDESTRIAN",
+        "dataTypeName" : "text",
+        "description" : "PEDESTRIAN",
+        "fieldName" : "pedestrian",
+        "position" : 10,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788214,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "largest" : "P",
+          "null" : 0,
+          "top" : [ {
+            "item" : " ",
+            "count" : 20
+          }, {
+            "item" : "P",
+            "count" : 19
+          } ],
+          "smallest" : " "
+        },
+        "format" : { }
+      }, {
+        "id" : 220714080,
+        "name" : "SHORELINE",
+        "dataTypeName" : "text",
+        "description" : "SHORELINE",
+        "fieldName" : "shoreline",
+        "position" : 11,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788215,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "largest" : "UR",
+          "null" : 0,
+          "top" : [ {
+            "item" : " ",
+            "count" : 20
+          }, {
+            "item" : "UR",
+            "count" : 19
+          }, {
+            "item" : "CM",
+            "count" : 18
+          }, {
+            "item" : "CN",
+            "count" : 17
+          }, {
+            "item" : "UM",
+            "count" : 16
+          }, {
+            "item" : "UC",
+            "count" : 15
+          }, {
+            "item" : "CR",
+            "count" : 14
+          }, {
+            "item" : "CW",
+            "count" : 13
+          }, {
+            "item" : "UI",
+            "count" : 12
+          }, {
+            "item" : "UH",
+            "count" : 11
+          }, {
+            "item" : "UG",
+            "count" : 10
+          }, {
+            "item" : "CP",
+            "count" : 9
+          } ],
+          "smallest" : " "
+        },
+        "format" : { }
+      }, {
+        "id" : 220714081,
+        "name" : "OVERLAY",
+        "dataTypeName" : "text",
+        "description" : "OVERLAY",
+        "fieldName" : "overlay",
+        "position" : 12,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788216,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "largest" : "ST",
+          "null" : 0,
+          "top" : [ {
+            "item" : " ",
+            "count" : 20
+          }, {
+            "item" : "NG",
+            "count" : 19
+          }, {
+            "item" : "SO",
+            "count" : 18
+          }, {
+            "item" : "SG",
+            "count" : 17
+          }, {
+            "item" : "SS",
+            "count" : 16
+          }, {
+            "item" : "DF",
+            "count" : 15
+          }, {
+            "item" : "HF",
+            "count" : 14
+          }, {
+            "item" : "ID",
+            "count" : 13
+          }, {
+            "item" : "IF",
+            "count" : 12
+          }, {
+            "item" : "AL",
+            "count" : 11
+          }, {
+            "item" : "RG",
+            "count" : 10
+          }, {
+            "item" : "SP",
+            "count" : 9
+          }, {
+            "item" : "SA",
+            "count" : 8
+          }, {
+            "item" : "ST",
+            "count" : 7
+          }, {
+            "item" : "65",
+            "count" : 6
+          }, {
+            "item" : "PN",
+            "count" : 5
+          } ],
+          "smallest" : " "
+        },
+        "format" : { }
+      }, {
+        "id" : 220714082,
+        "name" : "VILLAGE",
+        "dataTypeName" : "text",
+        "description" : "VILLAGE",
+        "fieldName" : "village",
+        "position" : 13,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788217,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 0,
+          "null" : 2453
+        },
+        "format" : { }
+      }, {
+        "id" : 220714083,
+        "name" : "SPLIT1",
+        "dataTypeName" : "number",
+        "description" : "SPLIT1",
+        "fieldName" : "split1",
+        "position" : 14,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1788218,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 0,
+          "null" : 2453,
+          "sum" : "0"
+        },
+        "format" : { }
+      }, {
+        "id" : 220714084,
+        "name" : "LIGHTRAIL",
+        "dataTypeName" : "text",
+        "description" : "LIGHTRAIL",
+        "fieldName" : "lightrail",
+        "position" : 15,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788219,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "largest" : "RO",
+          "null" : 0,
+          "top" : [ {
+            "item" : " ",
+            "count" : 20
+          }, {
+            "item" : "HN",
+            "count" : 19
+          }, {
+            "item" : "OT",
+            "count" : 18
+          }, {
+            "item" : "45",
+            "count" : 17
+          }, {
+            "item" : "CH",
+            "count" : 16
+          }, {
+            "item" : "MC",
+            "count" : 15
+          }, {
+            "item" : "BH",
+            "count" : 14
+          }, {
+            "item" : "ED",
+            "count" : 13
+          }, {
+            "item" : "RO",
+            "count" : 12
+          } ],
+          "smallest" : " "
+        },
+        "format" : { }
+      }, {
+        "id" : 220714085,
+        "name" : "OLDZONEID",
+        "dataTypeName" : "number",
+        "description" : "OLDZONEID",
+        "fieldName" : "oldzoneid",
+        "position" : 16,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1788220,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "average" : "400.4056257643702",
+          "largest" : "3193",
+          "null" : 0,
+          "top" : [ {
+            "item" : "0",
+            "count" : 20
+          }, {
+            "item" : "2288",
+            "count" : 19
+          }, {
+            "item" : "966",
+            "count" : 18
+          }, {
+            "item" : "170",
+            "count" : 17
+          }, {
+            "item" : "2356",
+            "count" : 16
+          }, {
+            "item" : "2413",
+            "count" : 15
+          }, {
+            "item" : "2437",
+            "count" : 14
+          }, {
+            "item" : "2439",
+            "count" : 13
+          }, {
+            "item" : "2442",
+            "count" : 12
+          }, {
+            "item" : "825",
+            "count" : 11
+          }, {
+            "item" : "828",
+            "count" : 10
+          }, {
+            "item" : "833",
+            "count" : 9
+          }, {
+            "item" : "836",
+            "count" : 8
+          }, {
+            "item" : "3154",
+            "count" : 7
+          }, {
+            "item" : "837",
+            "count" : 6
+          }, {
+            "item" : "3155",
+            "count" : 5
+          }, {
+            "item" : "3157",
+            "count" : 4
+          }, {
+            "item" : "3179",
+            "count" : 3
+          }, {
+            "item" : "3160",
+            "count" : 2
+          }, {
+            "item" : "3163",
+            "count" : 1
+          } ],
+          "smallest" : "0",
+          "sum" : "982195"
+        },
+        "format" : { }
+      }, {
+        "id" : 220714086,
+        "name" : "GEO",
+        "dataTypeName" : "text",
+        "description" : "GEO",
+        "fieldName" : "geo",
+        "position" : 17,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788221,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "largest" : "SLUC",
+          "null" : 0,
+          "top" : [ {
+            "item" : " ",
+            "count" : 20
+          }, {
+            "item" : "SLUC",
+            "count" : 19
+          }, {
+            "item" : "BDWY",
+            "count" : 18
+          } ],
+          "smallest" : " "
+        },
+        "format" : { }
+      }, {
+        "id" : 220714087,
+        "name" : "SYMBOL",
+        "dataTypeName" : "number",
+        "description" : "SYMBOL",
+        "fieldName" : "symbol",
+        "position" : 18,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1788222,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2449,
+          "average" : "93.07676602694978",
+          "largest" : "128.0",
+          "null" : 4,
+          "top" : [ {
+            "item" : "93.0",
+            "count" : 20
+          }, {
+            "item" : "25.0",
+            "count" : 19
+          }, {
+            "item" : "121.0",
+            "count" : 18
+          }, {
+            "item" : "128.0",
+            "count" : 17
+          }, {
+            "item" : "50.0",
+            "count" : 16
+          }, {
+            "item" : "33.0",
+            "count" : 15
+          }, {
+            "item" : "82.0",
+            "count" : 14
+          }, {
+            "item" : "99.0",
+            "count" : 13
+          } ],
+          "smallest" : "25.0",
+          "sum" : "227945.0"
+        },
+        "format" : { }
+      }, {
+        "id" : 220714088,
+        "name" : "ZONELUT_DE",
+        "dataTypeName" : "text",
+        "description" : "ZONELUT_DE",
+        "fieldName" : "zonelut_de",
+        "position" : 19,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788223,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2449,
+          "largest" : "Seattle Mixed Residential",
+          "null" : 4,
+          "top" : [ {
+            "item" : "Lowrise 3",
+            "count" : 20
+          }, {
+            "item" : "Lowrise 2",
+            "count" : 19
+          }, {
+            "item" : "Lowrise 1",
+            "count" : 18
+          }, {
+            "item" : "Major Institution Overlay",
+            "count" : 17
+          }, {
+            "item" : "Commercial 1",
+            "count" : 16
+          }, {
+            "item" : "Commercial 2",
+            "count" : 15
+          }, {
+            "item" : "Downtown Harborfront 1",
+            "count" : 14
+          }, {
+            "item" : "Downtown Harborfront 2",
+            "count" : 13
+          }, {
+            "item" : "Downtown Mixed Commercial",
+            "count" : 12
+          }, {
+            "item" : "Downtown Mixed Residential/Residential",
+            "count" : 11
+          }, {
+            "item" : "Highrise",
+            "count" : 10
+          }, {
+            "item" : "Industrial Buffer",
+            "count" : 9
+          }, {
+            "item" : "Industrial Commercial",
+            "count" : 8
+          }, {
+            "item" : "International District Mixed",
+            "count" : 7
+          }, {
+            "item" : "General Industrial 1",
+            "count" : 6
+          }, {
+            "item" : "General Industrial 2",
+            "count" : 5
+          }, {
+            "item" : "Midrise 1",
+            "count" : 4
+          }, {
+            "item" : "Midrise",
+            "count" : 3
+          }, {
+            "item" : "Neighborhood Commercial 1",
+            "count" : 2
+          }, {
+            "item" : "Neighborhood Commercial 2",
+            "count" : 1
+          } ],
+          "smallest" : "Commercial 1"
+        },
+        "format" : { }
+      }, {
+        "id" : 220714089,
+        "name" : "CLASS_DESC",
+        "dataTypeName" : "text",
+        "description" : "CLASS_DESC",
+        "fieldName" : "class_desc",
+        "position" : 20,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788224,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2449,
+          "largest" : "Single Family",
+          "null" : 4,
+          "top" : [ {
+            "item" : "Multi-Family",
+            "count" : 20
+          }, {
+            "item" : "Major Institutions",
+            "count" : 19
+          }, {
+            "item" : "Neighborhood/Commercial",
+            "count" : 18
+          }, {
+            "item" : "Downtown",
+            "count" : 17
+          }, {
+            "item" : "Manufacturing/Industrial",
+            "count" : 16
+          }, {
+            "item" : "Residential/Commercial",
+            "count" : 15
+          }, {
+            "item" : "Single Family",
+            "count" : 14
+          }, {
+            "item" : "Master Planned Community",
+            "count" : 13
+          } ],
+          "smallest" : "Downtown"
+        },
+        "format" : { }
+      }, {
+        "id" : 220714090,
+        "name" : "MIO",
+        "dataTypeName" : "text",
+        "description" : "MIO",
+        "fieldName" : "mio",
+        "position" : 21,
+        "renderTypeName" : "text",
+        "tableColumnId" : 1788225,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 0,
+          "null" : 2453
+        },
+        "format" : { }
+      }, {
+        "id" : 220714091,
+        "name" : "POLYAREA",
+        "dataTypeName" : "number",
+        "description" : "POLYAREA",
+        "fieldName" : "polyarea",
+        "position" : 22,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1788226,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 0,
+          "null" : 2453,
+          "sum" : "0"
+        },
+        "format" : { }
+      }, {
+        "id" : 220714092,
+        "name" : "POLYLEN",
+        "dataTypeName" : "number",
+        "description" : "POLYLEN",
+        "fieldName" : "polylen",
+        "position" : 23,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1788227,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 0,
+          "null" : 2453,
+          "sum" : "0"
+        },
+        "format" : { }
+      }, {
+        "id" : 220714093,
+        "name" : "AREA",
+        "dataTypeName" : "number",
+        "description" : "AREA",
+        "fieldName" : "area",
+        "position" : 24,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1788228,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "average" : "0",
+          "largest" : "0",
+          "null" : 0,
+          "top" : [ {
+            "item" : "0",
+            "count" : 20
+          } ],
+          "smallest" : "0",
+          "sum" : "0"
+        },
+        "format" : { }
+      }, {
+        "id" : 220714094,
+        "name" : "LEN",
+        "dataTypeName" : "number",
+        "description" : "LEN",
+        "fieldName" : "len",
+        "position" : 25,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1788229,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "average" : "0",
+          "largest" : "0",
+          "null" : 0,
+          "top" : [ {
+            "item" : "0",
+            "count" : 20
+          } ],
+          "smallest" : "0",
+          "sum" : "0"
+        },
+        "format" : { }
+      }, {
+        "id" : 220714095,
+        "name" : "Shape_Length",
+        "dataTypeName" : "number",
+        "description" : "Shape_Length",
+        "fieldName" : "shape_length",
+        "position" : 26,
+        "renderTypeName" : "number",
+        "tableColumnId" : 1788230,
+        "width" : 100,
+        "cachedContents" : {
+          "non_null" : 2453,
+          "average" : "1945.677769530205",
+          "largest" : "650513.419638909515924751758575439453125",
+          "null" : 0,
+          "top" : [ {
+            "item" : "1037.2113338200360885821282863616943359375",
+            "coun{
+  "error" : true,
+  "message" : "Internal error",
+  "status" : 500
+}
